@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+         https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+
+    <display-name>LeaveManagement</display-name>
+
+    <!-- Front controller mapping (if not using annotation) -->
+    <servlet>
+        <servlet-name>MainController</servlet-name>
+        <servlet-class>controller.MainController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MainController</servlet-name>
+        <url-pattern>/MainController</url-pattern>
+    </servlet-mapping>
+
+    <!-- Filters -->
+    <filter>
+        <filter-name>AuthenticationFilter</filter-name>
+        <filter-class>filter.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>AuthorizationFilter</filter-name>
+        <filter-class>filter.AuthorizationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthorizationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Error pages -->
+    <error-page>
+        <error-code>403</error-code>
+        <location>/error403.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error404.jsp</location>
+    </error-page>
+</web-app>
