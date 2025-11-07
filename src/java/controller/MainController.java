@@ -9,7 +9,9 @@ package controller;
  * @author Minh
  */
 
+import dao.DepartmentDAO;
 import dao.RequestDAO;
+import dao.RoleDAO;
 import dao.UserDAO;
 import model.Request;
 import model.User;
@@ -26,9 +28,11 @@ import java.util.List;
 public class MainController extends HttpServlet {
     
     
-    private UserDAO userDAO = new UserDAO();
-    private RequestDAO requestDAO = new RequestDAO();
-
+    private final UserDAO userDAO = new UserDAO();
+    private final RequestDAO requestDAO = new RequestDAO();
+    private final DepartmentDAO departmentDAO = new DepartmentDAO();
+    private final RoleDAO roleDAO = new RoleDAO();
+    
     protected void doGet(jakarta.servlet.http.HttpServletRequest request, jakarta.servlet.http.HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
@@ -82,6 +86,14 @@ public class MainController extends HttpServlet {
         String p = req.getParameter("password");
         User user = userDAO.authenticate(u, p);
         if (user != null) {
+            // 1. Lấy tên phòng ban
+            String deptName = departmentDAO.getDepartmentNameById(user.getDepartmentId());
+            user.setDepartmentName(deptName);
+
+            // 2. Lấy Role
+            String roleName = roleDAO.getRoleNameByUserId(user.getId());
+            user.setRoleName(roleName);
+            
             HttpSession session = req.getSession();
             session.setAttribute("user", user);
             resp.sendRedirect("MainController?action=home");
@@ -98,14 +110,13 @@ public class MainController extends HttpServlet {
     }
 
     private void createRequestPost(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        String title = req.getParameter("title");
         String from = req.getParameter("fromDate");
         String to = req.getParameter("toDate");
         String reason = req.getParameter("reason");
 
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Request r = new Request();
-        r.setTitle(title);
+        r.setTitle(reason);
         r.setFromDate(df.parse(from));
         r.setToDate(df.parse(to));
         r.setReason(reason);

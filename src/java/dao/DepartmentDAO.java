@@ -50,4 +50,22 @@ public class DepartmentDAO {
             ps.executeUpdate();
         }
     }
+    public String getDepartmentNameById(int id) throws Exception {
+        String sql = "SELECT name FROM Department WHERE id = ?";
+        
+        try (Connection con = DBContext.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                return rs.getString("name");
+            }
+        } catch (Exception e) {
+            System.out.println("Lỗi khi lấy DepartmentName: " + e.getMessage());
+            throw e; // Ném lỗi ra ngoài để MainController xử lý
+        }
+        return null; // Trả về null nếu không tìm thấy  
+    }
 }

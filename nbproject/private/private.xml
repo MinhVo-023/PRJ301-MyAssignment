@@ -6,8 +6,10 @@
             <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/dao/FeatureDAO.java</file>
             <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/controller/MainController.java</file>
             <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/web/login.jsp</file>
-            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/web/listRequest.jsp</file>
             <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/filter/AuthenticationFilter.java</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/model/Feature.java</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/model/Role.java</file>
             <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/model/Department.java</file>
             <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/web/error404.jsp</file>
             <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/util/DBContext.java</file>
@@ -16,6 +18,8 @@
             <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/model/User.java</file>
             <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/web/approveRequest.jsp</file>
             <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/dao/RequestDAO.java</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/model/Request.java</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/filter/AuthorizationFilter.java</file>
             <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/web/agenda.jsp</file>
             <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/web/error403.jsp</file>
             <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/dao/UserDAO.java</file>
