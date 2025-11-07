@@ -2,6 +2,24 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/dao/FeatureDAO.java</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/controller/MainController.java</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/web/login.jsp</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/filter/AuthenticationFilter.java</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/model/Department.java</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/web/error404.jsp</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/util/DBContext.java</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/web/createRequest.jsp</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/dao/RoleDAO.java</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/model/User.java</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/web/approveRequest.jsp</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/dao/RequestDAO.java</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/web/agenda.jsp</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/web/error403.jsp</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/dao/UserDAO.java</file>
+            <file>file:/C:/Users/Minh/OneDrive/Documents/GitHub/PRJ301-MyAssignment/src/java/dao/DepartmentDAO.java</file>
+        </group>
     </open-files>
 </project-private>

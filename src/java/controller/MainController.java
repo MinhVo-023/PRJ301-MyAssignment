@@ -75,9 +75,9 @@ public class MainController extends HttpServlet {
     }
 
     private void login(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        System.out.println("--- DEBUG: In login function---");
-        System.out.println("--- DEBUG: Username form: [" + req.getParameter("username") + "]");
-        System.out.println("--- DEBUG: Password form: [" + req.getParameter("password") + "]");
+//        System.out.println("--- DEBUG: In login function---");
+//        System.out.println("--- DEBUG: Username form: [" + req.getParameter("username") + "]");
+//        System.out.println("--- DEBUG: Password form: [" + req.getParameter("password") + "]");
         String u = req.getParameter("username");
         String p = req.getParameter("password");
         User user = userDAO.authenticate(u, p);
