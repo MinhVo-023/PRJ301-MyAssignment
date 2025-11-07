@@ -40,7 +40,7 @@ public class MainController extends HttpServlet {
 
     protected void processRequest(jakarta.servlet.http.HttpServletRequest request, jakarta.servlet.http.HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("!!!!!!!!!! [DEBUG] ĐÃ NHẬN ĐƯỢC YÊU CẦU TỚI MAIN CONTROLLER !!!!!!!!!!!");
+//      System.out.println("!!!!!!!!!! [DEBUG] Access request to MainController !!!!!!!!!!!");
         String action = request.getParameter("action");
         if (action == null) action = "home";
 

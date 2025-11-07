@@ -5,7 +5,7 @@
     <title>Agenda</title>
 </head>
 <body>
-<h2>Tình hình nghỉ phép phòng của bạn</h2>
+<h2>Tình hình nghỉ phép phòng ban</h2>
 
 <form action="MainController" method="get">
     <input type="hidden" name="action" value="agenda"/>

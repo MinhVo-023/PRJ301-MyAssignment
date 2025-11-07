@@ -2,12 +2,12 @@
 <html>
 <head><title>Create Request</title></head>
 <body>
-<h2>Tạo đơn nghỉ phép</h2>
+<h2>Đơn xin nghỉ phép</h2>
 <form action="MainController?action=createRequest" method="post">
     Title: <input type="text" name="title"/><br/>
-    From: <input type="date" name="fromDate"/><br/>
-    To: <input type="date" name="toDate"/><br/>
-    Reason: <textarea name="reason"></textarea><br/>
+    Từ ngày: <input type="date" name="fromDate"/><br/>
+    Tới ngày: <input type="date" name="toDate"/><br/>
+    Lý do: <textarea name="reason"></textarea><br/>
     <button type="submit">Gửi</button>
 </form>
 </body>
