@@ -5,6 +5,7 @@ import util.DBContext;
 import java.sql.*;
 import java.util.*;
 
+
 public class RoleDAO {
 
     // Lấy tất cả role trong hệ thống
@@ -52,6 +53,28 @@ public class RoleDAO {
             ps.setString(1, name);
             ps.executeUpdate();
         }
+    }
+    public String getRoleNameByUserId(int userId) throws Exception {
+        // TOP 1 để đảm bảo chỉ lấy 1 role, phòng trường hợp 1 user có nhiều role
+        String sql = "SELECT TOP 1 r.name " +
+                     "FROM Role r " +
+                     "JOIN User_Role ur ON r.id = ur.role_id " +
+                     "WHERE ur.user_id = ? ";
+        
+        try (Connection con = DBContext.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            
+            ps.setInt(1, userId);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                return rs.getString("name");
+            }
+        } catch (Exception e) {
+            System.out.println("Lỗi khi lấy RoleName: " + e.getMessage());
+            throw e; // Ném lỗi ra ngoài
+        }
+        return null; // Trả về null nếu không tìm thấy role nào
     }
 }
 
