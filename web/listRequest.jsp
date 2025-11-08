@@ -22,7 +22,7 @@
         <td>
             <% if ("InProgress".equalsIgnoreCase(r.getStatus())) { %>
                 <!-- Only manager/authorized can see approve link - AuthorizationFilter will protect -->
-                <a href="MainController?action=approveRequest&id=<%= r.getId() %>">Approve/Reject</a>
+                <a href="MainController?action=approveRequest&id=<%= r.getId() %>">View Request</a>
             <% } %>
         </td>
     </tr>
