@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller;
 
 /**
@@ -63,8 +59,11 @@ public class MainController extends HttpServlet {
                 case "listRequest":
                     listRequest(request, response);
                     break;
-                case "approveRequest":
-                    approveRequest(request, response);
+                case "viewRequest": 
+                    viewRequest(request, response);
+                    break;
+                case "processApproval": 
+                    processApproval(request, response);
                     break;
                 case "agenda":
                     showAgenda(request, response);
@@ -136,7 +135,7 @@ public class MainController extends HttpServlet {
         req.getRequestDispatcher("listRequest.jsp").forward(req, resp);
     }
 
-    private void approveRequest(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+    private void processApproval(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         String idStr = req.getParameter("id");
         String action = req.getParameter("decision"); // approve / reject
         if (idStr != null && action != null) {
@@ -146,6 +145,21 @@ public class MainController extends HttpServlet {
             requestDAO.updateStatus(id, status, u.getId());
         }
         resp.sendRedirect("MainController?action=listRequest");
+    }
+        private void viewRequest(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+        String idStr = req.getParameter("id");
+        if (idStr != null) {
+            int id = Integer.parseInt(idStr);
+            // Bạn sẽ phải tự viết hàm getRequestById trong RequestDAO
+            Request r = requestDAO.getRequestById(id); 
+
+            // Gửi dữ liệu request tìm được qua trang JSP
+            req.setAttribute("requestDetail", r); 
+            req.getRequestDispatcher("approveRequest.jsp").forward(req, resp);
+        } else {
+            // Nếu không có ID, đá về list
+            resp.sendRedirect("MainController?action=listRequest");
+        }
     }
     private void showAgenda(jakarta.servlet.http.HttpServletRequest req,
                             jakarta.servlet.http.HttpServletResponse resp)

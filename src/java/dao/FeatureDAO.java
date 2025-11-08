@@ -37,7 +37,7 @@ public class FeatureDAO {
                      "FROM Role_Feature rf " +
                      "JOIN Feature f ON rf.feature_id = f.id " +
                      "WHERE rf.role_id = ?";
-        try (Connection conn = new DBContext().getConnection();
+        try (Connection conn = DBContext.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, roleId);
             try (ResultSet rs = ps.executeQuery()) {
@@ -51,7 +51,6 @@ public class FeatureDAO {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return list;
     }
@@ -61,7 +60,7 @@ public class FeatureDAO {
         String sql = "SELECT COUNT(*) FROM Role_Feature rf " +
                      "JOIN Feature f ON rf.feature_id = f.id " +
                      "WHERE rf.role_id = ? AND f.url = ?";
-        try (Connection conn = new DBContext().getConnection();
+        try (Connection conn = DBContext.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, roleId);
             ps.setString(2, actionUrl);
@@ -71,7 +70,6 @@ public class FeatureDAO {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return false;
     }

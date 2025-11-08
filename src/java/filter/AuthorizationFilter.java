@@ -44,6 +44,13 @@ public class AuthorizationFilter implements Filter {
         }
 
         try {
+            String action = req.getParameter("action");
+            if (action == null) {
+                action = "home"; 
+            }
+            String servletPath = req.getServletPath();
+            String featureToTest = servletPath + "?action=" + action;
+            System.out.println("--- AUTH_FILTER_DEBUG: Checking permission for UserID: " + u.getId() + " on Feature: [" + featureToTest + "]");
             boolean ok = featureDAO.userHasAccess(u.getId(), req.getQueryString() == null ? uri : uri + "?" + req.getQueryString());
             if (!ok) {
                 res.sendRedirect(req.getContextPath() + "/error403.jsp");

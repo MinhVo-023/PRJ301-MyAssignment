@@ -66,6 +66,33 @@ public class RequestDAO {
             ps.executeUpdate();
         }
     }
+    public Request getRequestById(int requestId) throws Exception {
+        String sql = "SELECT * FROM LeaveRequest WHERE id = ?";
+        try (Connection con = DBContext.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            
+            ps.setInt(1, requestId);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                // Chúng ta sẽ "build" đối tượng Request y hệt như hàm getRequestsByUser
+                Request r = new Request();
+                r.setId(rs.getInt("id"));
+                r.setTitle(rs.getString("title"));
+                r.setFromDate(rs.getDate("from_date"));
+                r.setToDate(rs.getDate("to_date"));
+                r.setReason(rs.getString("reason"));
+                r.setStatus(rs.getString("status"));
+                r.setCreatedBy(rs.getInt("created_by"));
+                int pb = rs.getInt("processed_by");
+                if (rs.wasNull()) r.setProcessedBy(null); else r.setProcessedBy(pb);
+                
+                return r; // Trả về cái Request đã tìm thấy
+            }
+        }
+        return null; // Trả về null nếu không tìm thấy ID
+    }
+    
     public Map<Integer, List<Request>> getLeavesByDepartmentAndDateRange(int depId, java.util.Date from, java.util.Date to) throws Exception {
         Map<Integer, List<Request>> map = new HashMap<>();
         String sql = "SELECT lr.*, u.department_id FROM LeaveRequest lr " +
